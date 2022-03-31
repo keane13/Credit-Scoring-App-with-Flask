@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Aplikasi Credit Scoring</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  <style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+  </style>
+  <style type="text/css">
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}  </style>
+</head>
+
+<body>
+
+<!--<img src=
+"https://restaurantindia.s3.ap-south-1.amazonaws.com/s3fs-public/news14109.jpg"
+         alt="zomato image", width="400", height="150", style="float:left">
+
+<img src=
+https://totaldatascience.com/wp-content/uploads/2019/10/TOTAL-1.png"
+         alt="zomato image", width="200", height="70", style="float:right">-->
+<!--
+<style>
+body 
+ {
+  background-image: url("https://images.pexels.com/photos/952356/pexels-photo-952356.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-position: 200%;
+  background-size: cover;
+} 
+</style>
+-->
+<div class="topnav">
+  <a class="active" href="#home">Credit Scoring App</a>
+  
+
+</div>
+
+
+<div class="login" >
+  <br>
+<br>
+	<h4>Predict Scoring(1:BAD, 0:GOOD)</h4>
+  {{ prediction_text }}
+  <div size='7' style="width:500px; height:500px; overflow: auto;">
+    
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Credit Score</button>
+        
+            
+    	<input type="text" id="LOAN" name="LOAN" placeholder="Amount of the loan" required="required" class="form-control" />
+      
+        <input type="text" name="MORTDUE" placeholder="Amount of the Morgage" required="required" />
+       </div>
+		    <input type="text" name="VALUES" placeholder="Value of current property" required="required" />
+        <input type="text" name="YOJ" placeholder="Years at present job" required="required" />
+        <input type="text" name="DEROJ" placeholder="Number of major derogatory reports" required="required" />
+        <input type="text" name="DELINQ" placeholder="Number of delinquent credit lines" required="required" />
+        <input type="text" name="CLAGE" placeholder="Age of oldest trade line in months" required="required" />
+        <input type="text" name="NINQ" placeholder="Number of recent credit lines" required="required" />
+        <input type="text" name="CLNO" placeholder="Number of credit lines" required="required" />
+        <input type="text" name="DEBTINC" placeholder="Debt-to-income ratio" required="required" />
+        
+    
+    
+        <div class="form-group">
+        <input type="text" name="Mgr" placeholder="Mgr" required="required" />
+        <input type="text" name="office" placeholder="office" required="required" />
+        <input type="text" name="Other" placeholder="Other" required="required" />
+        <input type="text" name="ProfExe" placeholder="ProfExe" required="required" />
+        <input type="text" name="Sales" placeholder="Sales" required="required" />
+        <input type="text" name="Self" placeholder="Self" required="required" />
+        <input type="text" name="DebtCon" placeholder="debt consolidation" required="required" />
+        <input type="text" name="HomeImp" placeholder="home improvement" required="required" />
+        </div>
+      
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Credit Score</button>
+      
+    </form>
+</div>
+   <br>
+  
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+
+</html>
